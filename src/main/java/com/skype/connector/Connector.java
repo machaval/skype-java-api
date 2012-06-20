@@ -1,9 +1,9 @@
 /*******************************************************************************
  * Copyright (c) 2006-2007 Koji Hisano <hisano@gmail.com> - UBION Inc. Developer
  * Copyright (c) 2006-2007 UBION Inc. <http://www.ubion.co.jp/>
- * 
+ *
  * Copyright (c) 2006-2007 Skype Technologies S.A. <http://www.skype.com/>
- * 
+ *
  * Skype4Java is licensed under either the Apache License, Version 2.0 or
  * the Eclipse Public License v1.0.
  * You may use it freely in commercial and non-commercial products.
@@ -15,7 +15,7 @@
  * If it is possible to cooperate with the publicity of Skype4Java, please add
  * links to the Skype4Java web site <https://developer.skype.com/wiki/Java_API> 
  * in your web site or documents.
- * 
+ *
  * Contributors:
  * Koji Hisano - initial API and implementation
  * Gabriel Takeuchi - retry commands instead of "ping-pong" to improve reliability
@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Base class for all platform specific connectors. A connector connects the
  * Skype Java API with a running Skype client.
- * 
+ *
  * @author Koji Hisano <hisano@gmail.com>
  */
 public abstract class Connector {
@@ -57,7 +57,7 @@ public abstract class Connector {
 	 * Initializes a platform specific connection. This method will select a
 	 * connector based on the os.name. Windows has two versions see
 	 * useJNIConnector.
-	 * 
+	 *
 	 * @return an initialized connection.
 	 */
 	public static synchronized Connector getInstance() {
@@ -91,7 +91,7 @@ public abstract class Connector {
 
 	/**
 	 * Sets the instance of the connector for test cases.
-	 * 
+	 *
 	 * @param newInstance
 	 *            The new instance.
 	 * @throws ConnectorException
@@ -176,7 +176,7 @@ public abstract class Connector {
 	/**
 	 * Try to get the absolute path to the skype client. Should be overridden
 	 * for each platfrom specific connector. Not geranteed to work.
-	 * 
+	 *
 	 * @return The absolute path to the Skype client executable.
 	 */
 	public String getInstalledPath() {
@@ -185,7 +185,7 @@ public abstract class Connector {
 
 	/**
 	 * Enable or disable debug printing for more information.
-	 * 
+	 *
 	 * @param on
 	 *            if true debug output will be written to System.out
 	 * @throws ConnectorException
@@ -221,7 +221,7 @@ public abstract class Connector {
 
 	/**
 	 * Sets the debug output stream.
-	 * 
+	 *
 	 * @param newDebugOut
 	 *            the new debug output stream
 	 * @throws NullPointerException
@@ -236,7 +236,7 @@ public abstract class Connector {
 
 	/**
 	 * Sets the debug output stream.
-	 * 
+	 *
 	 * @param newDebugOut
 	 *            the new debug output stream
 	 * @throws NullPointerException
@@ -251,7 +251,7 @@ public abstract class Connector {
 
 	/**
 	 * Gets the debug output stream.
-	 * 
+	 *
 	 * @return the current debug output stream
 	 * @see #setDebugOut(PrintWriter)
 	 * @see #setDebugOut(PrintStream)
@@ -264,7 +264,7 @@ public abstract class Connector {
 	 * Sets the application name used to get the access grant of Skype API. The
 	 * specified name is what the User will see in the Skype API Allow/Deny
 	 * dialog.
-	 * 
+	 *
 	 * @param newApplicationName
 	 *            the application name
 	 * @throws NullPointerException
@@ -278,7 +278,7 @@ public abstract class Connector {
 
 	/**
 	 * Gets the application name used to get the access grant of Skype API.
-	 * 
+	 *
 	 * @return the application name
 	 * @see #setApplicationName(String)
 	 */
@@ -289,7 +289,7 @@ public abstract class Connector {
 	/**
 	 * Sets the status of this connector. After setting, an status changed event
 	 * will be sent to the all listeners.
-	 * 
+	 *
 	 * @param newValue
 	 *            the new status
 	 * @throws NullPointerException
@@ -304,7 +304,7 @@ public abstract class Connector {
 
 	/**
 	 * Sends a status change event to the all listeners.
-	 * 
+	 *
 	 * @param newStatus
 	 *            the new status
 	 */
@@ -329,7 +329,7 @@ public abstract class Connector {
 
 	/**
 	 * Converts the specified listener list to an listener array.
-	 * 
+	 *
 	 * @param listeners
 	 *            the listener list
 	 * @return an listener array
@@ -341,7 +341,7 @@ public abstract class Connector {
 
 	/**
 	 * Sends a status change event to the specified listeners.
-	 * 
+	 *
 	 * @param listeners
 	 *            the event listeners
 	 * @param newStatus
@@ -358,7 +358,7 @@ public abstract class Connector {
 
 	/**
 	 * Gets the status of this connector.
-	 * 
+	 *
 	 * @return status the status of this connector
 	 * @see #setStatus(com.skype.connector.Connector.Status)
 	 */
@@ -368,7 +368,7 @@ public abstract class Connector {
 
 	/**
 	 * Sets the connect timeout of this connector.
-	 * 
+	 *
 	 * @param newConnectTimeout
 	 *            the new connect timeout in milliseconds
 	 * @throws IllegalArgumentException
@@ -385,7 +385,7 @@ public abstract class Connector {
 
 	/**
 	 * Gets the connect timeout of this connector.
-	 * 
+	 *
 	 * @return the connect timeout in milliseconds
 	 * @see #setConnectTimeout(int)
 	 */
@@ -395,7 +395,7 @@ public abstract class Connector {
 
 	/**
 	 * Sets the command reply timeout of this connector.
-	 * 
+	 *
 	 * @param newCommandTimeout
 	 *            the new command reply timeout in milliseconds
 	 * @throws IllegalArgumentException
@@ -412,7 +412,7 @@ public abstract class Connector {
 
 	/**
 	 * Gets the command reply timeout of this connector.
-	 * 
+	 *
 	 * @return the command reply timeout in milliseconds
 	 * @see #setCommandTimeout(int)
 	 */
@@ -422,7 +422,7 @@ public abstract class Connector {
 
 	/**
 	 * Tries to connect this connector to the Skype client.
-	 * 
+	 *
 	 * @return the status after trying to connect.
 	 * @throws ConnectorException
 	 *             if trying to connect failed
@@ -441,7 +441,7 @@ public abstract class Connector {
 
 	/**
 	 * Initializes this connector.
-	 * 
+	 *
 	 * @throws ConnectorException
 	 *             if the initialization failed.
 	 */
@@ -491,7 +491,7 @@ public abstract class Connector {
 
 	/**
 	 * Initializes the platform specific resources.
-	 * 
+	 *
 	 * @throws ConnectorException
 	 *             if the initialization failed.
 	 */
@@ -500,7 +500,7 @@ public abstract class Connector {
 	/**
 	 * Tries to connect this connector to the Skype client on the platform
 	 * mechanism.
-	 * 
+	 *
 	 * @param timeout
 	 *            the connect timeout in milliseconds to use while connecting.
 	 * @return the status after trying to connect
@@ -512,7 +512,7 @@ public abstract class Connector {
 	/**
 	 * Sends the application name to the Skype client. The default
 	 * implementation does nothing.
-	 * 
+	 *
 	 * @param applicationName
 	 *            the application name
 	 * @throws ConnectorException
@@ -525,7 +525,7 @@ public abstract class Connector {
 	/**
 	 * Sends the Skype API protocol version to use. The default implementation
 	 * uses the latest version of the Skype API.
-	 * 
+	 *
 	 * @throws ConnectorException
 	 *             if sending the protocol version failed
 	 */
@@ -535,7 +535,7 @@ public abstract class Connector {
 
 	/**
 	 * Disconnects from the Skype client and clean up the resources.
-	 * 
+	 *
 	 * @throws ConnectorException
 	 *             if cleaning up the resources failed
 	 */
@@ -567,7 +567,7 @@ public abstract class Connector {
 	/**
 	 * Disconnects from the Skype client and clean up the resources of the
 	 * platfrom.
-	 * 
+	 *
 	 * @throws ConnectorException
 	 *             if cleaning up the resources failed
 	 */
@@ -575,7 +575,7 @@ public abstract class Connector {
 
 	/**
 	 * Checks if the Skype client is running or not.
-	 * 
+	 *
 	 * @return true if the Skype client is runnunig; false otherwise
 	 * @throws ConnectorException
 	 *             if checking the Skype client status failed
@@ -592,7 +592,7 @@ public abstract class Connector {
 	/**
 	 * Executes the specified command and handles the response by the specified
 	 * message processor.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param processor
@@ -641,7 +641,7 @@ public abstract class Connector {
 	 * Executes the specified command and gets the response. It is better to use
 	 * {@link #executeWithId(String, String)} because it returns the accurate
 	 * response.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @return the response after execution
@@ -658,7 +658,7 @@ public abstract class Connector {
 
 	/**
 	 * Executes the specified command and gets the response using a command ID.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param responseHeader
@@ -675,13 +675,13 @@ public abstract class Connector {
 		ConnectorUtils.checkNotNull("responseHeader", responseHeader);
 		final String header = "#" + _commandCount.getAndIncrement() + " ";
 		final String response = execute(header + command, new String[] {
-				header + responseHeader, header + "ERROR " }, true);
+				header + responseHeader, header + "ERROR " , responseHeader}, true);
 		return response.substring(header.length());
 	}
 
 	/**
 	 * Executes the specified command and gets the future using a command ID.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param responseHeader
@@ -747,7 +747,7 @@ public abstract class Connector {
 	/**
 	 * Executes the specified command and waits for the response without
 	 * timeout.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param responseHeader
@@ -768,7 +768,7 @@ public abstract class Connector {
 
 	/**
 	 * Executes the specified command and gets the response.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param responseHeader
@@ -788,7 +788,7 @@ public abstract class Connector {
 
 	/**
 	 * Executes the specified command and gets the response.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param responseHeaders
@@ -808,7 +808,7 @@ public abstract class Connector {
 
 	/**
 	 * Executes the specified command and gets the response.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param responseHeaders
@@ -829,7 +829,7 @@ public abstract class Connector {
 
 	/**
 	 * Executes the specified command and gets the response.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param responseHeaders
@@ -850,7 +850,7 @@ public abstract class Connector {
 		final NotificationChecker checker = new NotificationChecker() {
 			public boolean isTarget(String message) {
 				for (String responseHeader : responseHeaders) {
-					if (message.startsWith(responseHeader)) {
+					if (message.contains(responseHeader)) {
 						return true;
 					}
 				}
@@ -880,7 +880,7 @@ public abstract class Connector {
 
 	/**
 	 * Executes the specified command and gets the future using a command ID.
-	 * 
+	 *
 	 * @param command
 	 *            the command to execute
 	 * @param responseChecker
@@ -911,7 +911,7 @@ public abstract class Connector {
 				ConnectorListener listener = new AbstractConnectorListener() {
 					public void messageReceived(ConnectorMessageEvent event) {
 						String message = event.getMessage();
-						
+
 						if (responseChecker.isTarget(message)
 								|| message.startsWith("PONG")) {
 							responses.add(message);
@@ -938,12 +938,12 @@ public abstract class Connector {
 								// retry the message again
 								fireMessageSent(command);
 								sendCommand(command);
-								
+
 								pinged = true;
 								continue;
 							}
 						}
-						
+
 						return response;
 					}
 				} finally {
@@ -955,7 +955,7 @@ public abstract class Connector {
 
 	/**
 	 * Fires a message sent event.
-	 * 
+	 *
 	 * @param message
 	 *            the message that triggered the event
 	 */
@@ -966,7 +966,7 @@ public abstract class Connector {
 	/**
 	 * Sends the specified command to the Skype client on the platform dependent
 	 * communication layer.
-	 * 
+	 *
 	 * @param command
 	 *            the command to be executed
 	 */
@@ -974,7 +974,7 @@ public abstract class Connector {
 
 	/**
 	 * Assures the attached status.
-	 * 
+	 *
 	 * @throws ConnectorException
 	 *             if this connector is not attached or trying to connect
 	 *             failed.
@@ -991,7 +991,7 @@ public abstract class Connector {
 
 	/**
 	 * Adds the specified listener to this connector.
-	 * 
+	 *
 	 * @param listener
 	 *            the listener to be added
 	 * @throws NullPointerException
@@ -1007,7 +1007,7 @@ public abstract class Connector {
 
 	/**
 	 * Adds the specified listener to this connector.
-	 * 
+	 *
 	 * @param listener
 	 *            the listener to be added
 	 * @param checkAttached
@@ -1025,7 +1025,7 @@ public abstract class Connector {
 
 	/**
 	 * Adds the specified listener to this connector.
-	 * 
+	 *
 	 * @param listener
 	 *            the listener to be added
 	 * @param checkAttached
@@ -1054,7 +1054,7 @@ public abstract class Connector {
 
 	/**
 	 * Removes the specified listener from this connector.
-	 * 
+	 *
 	 * @param listener
 	 *            the listener to be removed
 	 * @throws NullPointerException
@@ -1069,7 +1069,7 @@ public abstract class Connector {
 
 	/**
 	 * Fires a message received event.
-	 * 
+	 *
 	 * @param message
 	 *            the message that triggered the event
 	 */
@@ -1079,7 +1079,7 @@ public abstract class Connector {
 
 	/**
 	 * Fires a message event.
-	 * 
+	 *
 	 * @param message
 	 *            the message that triggered the event
 	 * @param isReceived
@@ -1103,7 +1103,7 @@ public abstract class Connector {
 
 	/**
 	 * Fires a message event.
-	 * 
+	 *
 	 * @param listenerList
 	 *            the event listener list
 	 * @param message
@@ -1126,7 +1126,7 @@ public abstract class Connector {
 	/**
 	 * Sets the specified property. If the specified value is null, the property
 	 * is removed.
-	 * 
+	 *
 	 * @param name
 	 *            the property name
 	 * @param value
@@ -1146,7 +1146,7 @@ public abstract class Connector {
 
 	/**
 	 * Gets the specified property value.
-	 * 
+	 *
 	 * @param name
 	 *            the property name
 	 * @return the property value

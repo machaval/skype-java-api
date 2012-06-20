@@ -270,7 +270,7 @@ public final class Chat extends SkypeObject {
      */
     public ChatMessage send(String message) throws SkypeException {
         try {
-            String responseHeader = "CHATMESSAGE ";
+            String responseHeader = "CHAT";
             String response = Connector.getInstance().executeWithId("CHATMESSAGE " + getId() + " " + message, responseHeader);
             Utils.checkError(response);
             String msgId = response.substring(responseHeader.length(), response.indexOf(" STATUS "));
